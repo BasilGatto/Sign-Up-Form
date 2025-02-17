@@ -1,0 +1,54 @@
+<!--Start of Document Decliration-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign-Up Form Demostration</title>
+    </head>
+    <body>
+        <p>Enter User and Pass</p>
+        <input id="btn-input-user">
+        <input id="btn-input-pass">
+        <button type="button" onclick="Btn_Validation()">Submit</button>
+        <p id="usr_val"></p>
+        <p id="pass_val"></p>
+
+<!--JavaScript Functions-->
+        <script>
+            //Checks user form input for valid entry limit
+            function Usr_check() {
+                let x = document.getElementById("btn-input-user").value;
+                let output_msg_usr = "";
+                if (x.trim() === "") {
+                    output_msg_usr = "Please do not leave the username field empty";
+                } else if (x.length > 50) {
+                    output_msg_usr = "Please keep username below 50 characters";
+                }
+                document.getElementById("usr_val").innerText = output_msg_usr;
+                return output_msg_usr === "";
+            }
+            //Checks pass form input for valid entry limit
+            function Pass_Check () {
+                let x = document.getElementById("btn-input-pass").value;
+                let output_msg_pass = "";
+                if (x.trim() === "") {
+                    output_msg_pass = "Please do not leave the password field empty";
+                } else if (x.length < 6) {
+                    output_msg_pass = "Please keep the password above 6 characters";
+                }
+                document.getElementById("pass_val").innerText = output_msg_pass;
+                return output_msg_pass === "";
+            }
+            //Checks both form inputs to put an alert message out.
+            function Btn_Validation() {
+                let isUsrValid = Usr_check();
+                let isPassValid = Pass_Check();
+                
+                if (isUsrValid && isPassValid) {
+                    alert("Username and Password Accepted")
+                } else {
+
+                }
+            }
+        </script>
+    </body>
+</html>
